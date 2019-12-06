@@ -1,3 +1,24 @@
+body {
+  color: rgb(78, 76, 76);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+header {
+  margin: 0;
+  background-color: #444;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: #fff;
+  }
+}
+
+main {
+  padding: 20px;
+}
 .book-card {
   color: #aaa;
   display: flex;
@@ -8,11 +29,16 @@
   padding: 15px;
   box-sizing: border-box;
   flex: 0 0 350px;
+  position: relative;
+
+  &:hover {
+    box-shadow: 4px 4px 10px 3px rgba(8, 8, 8, 0.2);
+    transition: box-shadow 0.4s ease;
+  }
 }
 
 .book-card img {
-  width: 110px;
-  height: 160px;
+  width: 130px;
   display: block;
   box-shadow: 0 2px 20px 2px rgba(143, 142, 142, 0.2);
 }
@@ -20,10 +46,8 @@
 .book-card img:hover {
   box-shadow: 0 15px 20px -12px rgb(0, 0, 0);
   position: relative;
-  top: -5px;
-  transition-property: top;
-  transition-duration: 5s;
-  transition-timing-function: linear;
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
 }
 .book-details {
   width: 70%;
@@ -40,5 +64,5 @@
   flex-wrap: nowrap;
   height: 250px;
   overflow: scroll;
-  padding: 10px 20px;
+  padding: 10px 40px;
 }

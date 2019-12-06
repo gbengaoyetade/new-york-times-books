@@ -11,11 +11,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always",
+    "trailingComma": "all"
+  },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "dotenv": "^6.2.0",
-    "next": "^7.0.2",
+    "next": "^9.1.4",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.1",
