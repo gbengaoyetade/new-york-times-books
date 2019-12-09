@@ -23,7 +23,6 @@ main {
   color: #aaa;
   display: flex;
   justify-content: space-between;
-  width: 20%;
   box-shadow: 2px 2px 20px 3px rgba(151, 127, 127, 0.2);
   margin: 10px 15px;
   padding: 15px;
@@ -58,11 +57,45 @@ main {
   position: relative;
   bottom: 0;
 }
+
+.books-scroll-wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .books-scroll {
   width: 95%;
   display: flex;
   flex-wrap: nowrap;
   height: 250px;
   overflow: scroll;
-  padding: 10px 40px;
+}
+
+.arrow-button {
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  border-radius: 50%;
+  font-size: 1.9em;
+  border: 1px solid #888;
+  color: #888;
+  background: #fff;
+
+  &:hover {
+    background: #eee;
+  }
+  &:focus {
+    outline: none;
+    border: 3px solid #888;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.9s linear, opacity 0.9s linear;
+}
+
+.center {
+  text-align: center;
 }

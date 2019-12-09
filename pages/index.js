@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { arrayOf, object } from 'prop-types';
 import Layout from '../components/layout';
-import BookCard from '../components/bookCard';
+import BestSellers from '../components/bestSellers';
 import makeInitialFetch from '../utils';
 
 class Home extends Component {
@@ -17,33 +17,14 @@ class Home extends Component {
   render() {
     const { booksCategory } = this.props;
     if (booksCategory) {
-      const categories = booksCategory.map((category) => {
-        const bestSellers = category.results.books.map((book) => (
-          <BookCard
-            imageUrl={book.book_image}
-            amazonUrl={book.amazon_product_url}
-            title={book.title}
-            author={book.author}
-            key={book.title}
-          />
-        ));
-        return (
-          <div key={category.results.display_name}>
-            <h2>{category.results.list_name}</h2>
-            <div className="books-scroll">
-              {bestSellers}
-              <p>&nbsp;</p>
-            </div>
-          </div>
-        );
-      });
-
       return (
         <div>
           <header>
             <h1>New York Times Best Sellers </h1>
           </header>
-          <main>{categories}</main>
+          <main>
+            <BestSellers booksCategory={booksCategory} />
+          </main>
         </div>
       );
     }
