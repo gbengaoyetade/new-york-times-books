@@ -19,12 +19,9 @@ class BestSellers extends Component {
     this[`${category.results.display_name}-r-btn`].current.classList.remove(
       'hidden',
     );
-    const bookCardWidth = 350;
     const scrollDiv = this[category.results.display_name].current;
-    scrollDiv.scrollLeft += scrollDiv.clientWidth;
-    let booksDisplayed = Math.floor(scrollDiv.clientWidth / bookCardWidth);
-    booksDisplayed += Math.floor(scrollDiv.scrollLeft / bookCardWidth);
-    if (booksDisplayed === category.results.books.length) {
+    scrollDiv.scrollLeft -= scrollDiv.clientWidth;
+    if (scrollDiv.scrollLeft === 0) {
       this[`${category.results.display_name}-l-btn`].current.classList.add(
         'hidden',
       );
@@ -35,9 +32,12 @@ class BestSellers extends Component {
     this[`${category.results.display_name}-l-btn`].current.classList.remove(
       'hidden',
     );
+    const bookCardWidth = 350;
     const scrollDiv = this[category.results.display_name].current;
-    scrollDiv.scrollLeft -= scrollDiv.clientWidth;
-    if (scrollDiv.scrollLeft === 0) {
+    scrollDiv.scrollLeft += scrollDiv.clientWidth;
+    let booksDisplayed = Math.floor(scrollDiv.clientWidth / bookCardWidth);
+    booksDisplayed += Math.floor(scrollDiv.scrollLeft / bookCardWidth);
+    if (booksDisplayed === category.results.books.length) {
       this[`${category.results.display_name}-r-btn`].current.classList.add(
         'hidden',
       );
@@ -63,7 +63,7 @@ class BestSellers extends Component {
             <button
               type="button"
               onClick={() => this.handleLeftClick(category)}
-              className="arrow-button"
+              className="arrow-button hidden"
               ref={this[`${category.results.display_name}-l-btn`]}
             >
               &larr;
@@ -78,7 +78,7 @@ class BestSellers extends Component {
             <button
               type="button"
               onClick={() => this.handleRightClick(category)}
-              className="arrow-button hidden"
+              className="arrow-button"
               ref={this[`${category.results.display_name}-r-btn`]}
             >
               &rarr;
