@@ -1,13 +1,18 @@
+html {
+  box-sizing: border-box;
+}
+
 body {
   color: rgb(78, 76, 76);
   margin: 0;
   padding: 0;
   height: 100vh;
+  font-size: 1rem;
 }
 header {
   margin: 0;
   background-color: #444;
-  height: 50px;
+  height: 4em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +22,9 @@ header {
 }
 
 main {
-  padding: 20px;
+  padding: 0.5em;
 }
+
 .book-card {
   color: #aaa;
   display: flex;
@@ -26,10 +32,9 @@ main {
   box-shadow: 2px 2px 20px 3px rgba(151, 127, 127, 0.2);
   margin: 10px 15px;
   padding: 15px;
-  box-sizing: border-box;
-  flex: 0 0 350px;
   position: relative;
-
+  box-sizing: border-box;
+  flex: 0 0 20vw;
   &:hover {
     box-shadow: 4px 4px 10px 3px rgba(8, 8, 8, 0.2);
     transition: box-shadow 0.4s ease;
@@ -37,7 +42,7 @@ main {
 }
 
 .book-card img {
-  width: 130px;
+  width: 9rem;
   display: block;
   box-shadow: 0 2px 20px 2px rgba(143, 142, 142, 0.2);
 }
@@ -98,4 +103,24 @@ main {
 
 .center {
   text-align: center;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+  .book-card {
+    flex: 0 0 85vw;
+  }
+
+  .books-scroll-wrapper {
+    button {
+      display: none;
+    }
+  }
+  main {
+    h2 {
+      text-align: center;
+    }
+  }
+  header {
+    font-size: 3vw;
+  }
 }
