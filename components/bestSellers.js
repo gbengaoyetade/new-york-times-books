@@ -32,7 +32,8 @@ class BestSellers extends Component {
     this[`${category.results.display_name}-l-btn`].current.classList.remove(
       'hidden',
     );
-    const bookCardWidth = 350;
+    // eslint-disable-next-line no-undef
+    const bookCardWidth = document.querySelector('.book-card').clientWidth;
     const scrollDiv = this[category.results.display_name].current;
     scrollDiv.scrollLeft += scrollDiv.clientWidth;
     let booksDisplayed = Math.floor(scrollDiv.clientWidth / bookCardWidth);
