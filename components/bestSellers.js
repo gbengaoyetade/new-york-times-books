@@ -58,7 +58,7 @@ class BestSellers extends Component {
       ));
       return (
         <div key={category.results.display_name}>
-          <h2>{category.results.display_name}</h2>
+          <h2 className="category-name">{category.results.display_name}</h2>
           <div className="books-scroll-wrapper">
             <button
               type="button"
