@@ -55,6 +55,7 @@ class BestSellers extends Component {
           title={book.title}
           author={book.author}
           key={book.title}
+          description={book.description}
         />
       ));
       return (

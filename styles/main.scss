@@ -26,7 +26,7 @@ main {
 }
 
 .category-name {
-  margin-left: 65px;
+  margin-left: 50px;
 }
 
 .book-card {
@@ -45,18 +45,58 @@ main {
   }
 }
 
-.book-card img {
+.book-image-wrapper {
+  // background-image: ;
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+  }
+}
+.book-image-wrapper::before {
+  content: '';
+  border-width: 10px 8px 8px 0;
+  border-style: solid;
+  border-color: transparent #222 transparent transparent;
+  top: 50%;
+  right: -0.8%;
+  opacity: 0;
+}
+
+.book-image-wrapper::after {
+  content: attr(book-description);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8s);
+  opacity: 0;
+  color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+
+.book-image-wrapper:hover::after,
+.book-image-wrapper:hover::before {
+  opacity: 1;
+  transform: translateX(107%);
+  transition: all ease 0.5s;
+}
+.book-image-wrapper img {
   width: 9rem;
+  height: 100%;
   display: block;
   box-shadow: 0 2px 20px 2px rgba(143, 142, 142, 0.2);
 }
 
-.book-card img:hover {
+.book-image-wrapper img:hover {
   box-shadow: 0 15px 20px -12px rgb(0, 0, 0);
   position: relative;
-  transform: translateY(-5px);
-  transition: transform 0.3s ease;
 }
+
 .book-details {
   width: 70%;
   margin-left: 5%;
@@ -141,5 +181,17 @@ main {
 @media only screen and (min-width: 768px) and (max-width: 979px) {
   .book-card {
     flex: 0 0 40vw;
+  }
+}
+
+@media only screen and (max-width: 979px) {
+  .book-image-wrapper:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all ease 0.5s;
+  }
+
+  .book-image-wrapper:hover::before {
+    display: none;
   }
 }

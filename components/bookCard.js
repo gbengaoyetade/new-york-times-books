@@ -1,12 +1,18 @@
 import { string } from 'prop-types';
 
 const BookCard = (props) => {
-  const {
-    imageUrl, amazonUrl, author, title,
-  } = props;
+  const { imageUrl, amazonUrl, author, title, description } = props;
   return (
     <div className="book-card">
-      <img src={imageUrl} alt="book" />
+      <div
+        className="book-image-wrapper"
+        book-description={
+          description.length ? description : 'Book has no description'
+        }
+      >
+        <img src={imageUrl} alt={title} />
+      </div>
+
       <div className="book-details">
         <p>
           <span>Title: </span>
@@ -32,5 +38,6 @@ BookCard.propTypes = {
   amazonUrl: string.isRequired,
   author: string.isRequired,
   title: string.isRequired,
+  description: string.isRequired,
 };
 export default BookCard;
