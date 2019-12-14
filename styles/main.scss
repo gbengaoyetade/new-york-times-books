@@ -184,14 +184,3 @@ main {
   }
 }
 
-@media only screen and (max-width: 979px) {
-  .book-image-wrapper:hover::after {
-    opacity: 1;
-    transform: translateX(0);
-    transition: all ease 0.5s;
-  }
-
-  .book-image-wrapper:hover::before {
-    display: none;
-  }
-}
