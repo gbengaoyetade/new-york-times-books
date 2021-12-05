@@ -5,15 +5,6 @@ import BestSellers from '../components/bestSellers';
 import makeInitialFetch from '../utils';
 
 class Home extends Component {
-  static async getInitialProps() {
-    try {
-      const response = await makeInitialFetch();
-      return { booksCategory: response };
-    } catch (error) {
-      return error;
-    }
-  }
-
   render() {
     const { booksCategory } = this.props;
     if (booksCategory) {
@@ -28,7 +19,16 @@ class Home extends Component {
         </div>
       );
     }
-    return <Layout>Hello world</Layout>;
+    return <Layout>...</Layout>;
+  }
+}
+
+export async function getServerSideProps() {
+  try {
+    const response = await makeInitialFetch();
+    return { props: { booksCategory: response } };
+  } catch (error) {
+    return error;
   }
 }
 

@@ -7,9 +7,9 @@ class BestSellers extends Component {
     super(props);
     const { booksCategory } = this.props;
     booksCategory.forEach((category) => {
-      this[category.results.display_name] = createRef();
-      this[`${category.results.display_name}-l-btn`] = createRef();
-      this[`${category.results.display_name}-r-btn`] = createRef();
+      this[category.results?.display_name] = createRef();
+      this[`${category.results?.display_name}-l-btn`] = createRef();
+      this[`${category.results?.display_name}-r-btn`] = createRef();
     });
     this.handleRightClick = this.handleRightClick.bind(this);
     this.handleLeftClick = this.handleLeftClick.bind(this);
