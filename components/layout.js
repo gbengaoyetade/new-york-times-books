@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import '../styles/main.scss';
 
 const Layout = (props) => {
   const { children } = props;
