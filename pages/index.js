@@ -22,13 +22,9 @@ class Home extends Component {
   }
 }
 
-export async function getServerSideProps() {
-  try {
-    const response = await makeInitialFetch();
-    return { props: { booksCategory: response } };
-  } catch (error) {
-    return error;
-  }
+export async function getStaticProps() {
+  const response = await makeInitialFetch();
+  return { props: { booksCategory: response }, revalidate: 1440 };
 }
 
 export default Home;
