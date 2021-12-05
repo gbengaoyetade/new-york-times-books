@@ -48,7 +48,7 @@ class BestSellers extends Component {
   render() {
     const { booksCategory } = this.props;
     const categories = booksCategory.map((category) => {
-      const bestSellers = category.results.books.map((book) => (
+      const bestSellers = category.results?.books.map((book) => (
         <BookCard
           imageUrl={book.book_image}
           amazonUrl={book.amazon_product_url}
@@ -58,21 +58,22 @@ class BestSellers extends Component {
           description={book.description}
         />
       ));
+
       return (
-        <div key={category.results.display_name}>
-          <h2 className="category-name">{category.results.display_name}</h2>
+        <div key={category.results?.display_name}>
+          <h2 className="category-name">{category.results?.display_name}</h2>
           <div className="books-scroll-wrapper">
             <button
               type="button"
               onClick={() => this.handleLeftClick(category)}
               className="arrow-button hidden"
-              ref={this[`${category.results.display_name}-l-btn`]}
+              ref={this[`${category.results?.display_name}-l-btn`]}
             >
               &larr;
             </button>
             <div
               className="books-scroll"
-              ref={this[category.results.display_name]}
+              ref={this[category.results?.display_name]}
             >
               {bestSellers}
               <p>&nbsp;</p>
@@ -81,7 +82,7 @@ class BestSellers extends Component {
               type="button"
               onClick={() => this.handleRightClick(category)}
               className="arrow-button"
-              ref={this[`${category.results.display_name}-r-btn`]}
+              ref={this[`${category.results?.display_name}-r-btn`]}
             >
               &rarr;
             </button>

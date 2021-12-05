@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import { arrayOf, object } from 'prop-types';
-import Layout from '../components/layout';
 import BestSellers from '../components/bestSellers';
 import makeInitialFetch from '../utils';
 
 class Home extends Component {
   render() {
     const { booksCategory } = this.props;
-    if (booksCategory) {
-      return (
-        <div>
-          <header>
-            <h1>New York Times Best Sellers </h1>
-          </header>
-          <main>
-            <BestSellers booksCategory={booksCategory} />
-          </main>
-        </div>
-      );
+    if (!booksCategory) {
+      return null;
     }
-    return <Layout>...</Layout>;
+
+    return (
+      <div>
+        <header>
+          <h1>New York Times Best Sellers </h1>
+        </header>
+        <main>
+          <BestSellers booksCategory={booksCategory} />
+        </main>
+      </div>
+    );
   }
 }
 
@@ -32,7 +31,4 @@ export async function getServerSideProps() {
   }
 }
 
-Home.propTypes = {
-  booksCategory: arrayOf(object).isRequired,
-};
 export default Home;
